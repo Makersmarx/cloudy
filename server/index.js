@@ -32,6 +32,7 @@ const massive = require('massive');
 const controller = require('./controller');
 
 // massive connecting to db
+
 massive({
   connectionString: CONNECTION_STRING,
   ssl: {
@@ -45,17 +46,18 @@ massive({
   .catch((err) => console.log(err));
 
 // endpoints
-// //Login:
+
+//Login:
 app.post('/auth/login', controller.login);
-// //Register:
+//Register:
 app.post('/auth/register', controller.register);
-// //Lesson:
-// app.get('/auth/lesson', controller.getLesson);
-// //Add:
-// app.post('/auth/lesson', controller.addLesson);
-// //Logout:
+//Lesson:
+app.get('/auth/lessons', controller.getLessons);
+//Add:
+app.post('/auth/lessons', controller.addLessons);
+//Remove:
+app.delete('/auth/lessons/:id', controller.deleteLessons);
+//Logout:
 app.post('/auth/logout', controller.logout);
-// //Remove:
-// app.delete('/auth/lesson/:id', controller.deleteLesson);
 
 app.listen(port, () => console.log(`Loud and Proud on Port: ${port}`));

@@ -45,4 +45,25 @@ module.exports = {
     req.session.destroy();
     res.sendStatus(200);
   },
+
+  // Add/Delete/Get Lessons
+  getLessons: async (req, res) => {
+    const db = req.app.get('db');
+    const lessons = await db.lessons.get_lessons();
+    res.status(200).send(lessons);
+  },
+  addLessons: async (req, res) => {
+    const { title, lesson, content } = req.body;
+    const db = req.app.get('db');
+    const lessons = await db.lessons.add_lessons([title, lesson, content]);
+    res.status(200).send(lessons);
+  },
+  deleteLessons: async (req, res) => {
+    const { id } = req.params;
+    const db = req.app.get('db');
+
+    const lessons = await db.lessons.delete_lessons([id]);
+
+    res.status(200).send(lessons);
+  },
 };
