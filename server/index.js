@@ -52,11 +52,11 @@ app.post('/auth/login', controller.login);
 //Register:
 app.post('/auth/register', controller.register);
 //Lesson:
-app.get('/auth/lessons', controller.getLessons);
+app.get('/api/lessons', controller.getLessons);
 //Add:
-app.post('/auth/lessons', controller.addLessons);
+app.post('/api/lessons', controller.addLessons);
 //Remove:
-app.delete('/auth/lessons/:id', controller.deleteLessons);
+app.delete('/api/lessons/:id', controller.deleteLessons);
 //Logout:
 app.post('/auth/logout', controller.logout);
 
