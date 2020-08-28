@@ -1,68 +1,74 @@
 const bcrypt = require('bcrypt');
 
 module.exports = {
-  register: async (req, res) => {
-    const { username, password } = req.body;
-    const db = req.app.get('db');
-    let userFound = await db.user.get_user([username]);
-    if (userFound[0]) {
-      res.status(409).send('User already exists');
-    } else {
-      const salt = bcrypt.genSaltSync(10);
-      const hash = bcrypt.hashSync(password, salt);
-      const newUser = await db.user.add_user([username, hash]);
-
-      req.session.user = newUser[0];
-      res.status(201).send(newUser[0]);
-    }
-  },
-
   login: async (req, res) => {
     const { username, password } = req.body;
     const db = req.app.get('db');
-
-    if (username === 'test' && password === 'test') {
-      res.status(200).send({ username: 'test', user_id: 0 });
-    }
-
-    let foundUser = await db.user.get_user(username);
-    foundUser = foundUser[0];
-    if (foundUser) {
-      const compareHash = foundUser.password;
-      const authenticated = bcrypt.compareSync(password, compareHash);
-      if (authenticated) {
-        delete foundUser.password;
-        req.session.user = foundUser;
-        res.statis(202).send(foundUser);
-      } else {
-        res.status(401).send('Email or Password not Correct');
-      }
+    const user = await db.check_user(username);
+    if (!user[0]) {
+      return res.status(401).send('Incorrect Credentials');
     } else {
-      res.status(401).send('Email or password incorrect');
+      const authenticated = bcrypt.compareSync(password, user[0].password);
+      if (authenticated) {
+        req.session.user = {
+          userId: user[0].user_id,
+          username: user[0].username,
+        };
+        res.status(200).send(req.session.user);
+      } else {
+        res.status(403).send('Email or Password Incorrect');
+      }
     }
   },
+
+  register: async (req, res) => {
+    const db = req.app.get('db');
+    const { username, password } = req.body;
+    const existingUser = await db.check_user(username);
+    if (existingUser[0]) {
+      return res.status(409).send('User Already Exists');
+    }
+    const salt = bcrypt.genSaltSync(10);
+    const hash = bcrypt.hashSync(password, salt);
+    const [newUser] = await db.create_user([username, hash]);
+    req.session.user = {
+      userId: newUser.user_id,
+      username: newUser.username,
+    };
+    res.status(200).send(req.session.user);
+  },
+
   logout: (req, res) => {
     req.session.destroy();
     res.sendStatus(200);
   },
 
+  getUser: (req, res) => {
+    if (req.session.user) {
+      res.status(200).send(req.session.user);
+    } else {
+      res.sendStatus(404);
+    }
+  },
+
   // Add/Delete/Get Lessons
   getLessons: async (req, res) => {
     const db = req.app.get('db');
-    const lessons = await db.lessons.get_lessons();
+    const lessons = await db.get_lessons();
     res.status(200).send(lessons);
   },
+
   addLessons: async (req, res) => {
     const { title, lesson, content } = req.body;
     const db = req.app.get('db');
-    const lessons = await db.lessons.add_lessons([title, lesson, content]);
+    const lessons = await db.add_lessons([title, lesson, content]);
     res.status(200).send(lessons);
   },
   deleteLessons: async (req, res) => {
     const { id } = req.params;
     const db = req.app.get('db');
 
-    const lessons = await db.lessons.delete_lessons([id]);
+    const lessons = await db.delete_lessons([id]);
 
     res.status(200).send(lessons);
   },

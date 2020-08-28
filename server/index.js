@@ -11,7 +11,7 @@ const app = express();
 
 const session = require('express-session');
 
-app.use(express.json);
+app.use(express.json());
 
 // destructure vars from .env to use in index.js
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
@@ -28,9 +28,6 @@ app.use(
 // massive
 const massive = require('massive');
 
-// controller
-const controller = require('./controller');
-
 // massive connecting to db
 
 massive({
@@ -45,12 +42,17 @@ massive({
   })
   .catch((err) => console.log(err));
 
+// controller
+const controller = require('./controller');
+
 // endpoints
 
 //Login:
 app.post('/auth/login', controller.login);
 //Register:
 app.post('/auth/register', controller.register);
+//Users:
+app.get('/auth/user', controller.getUser);
 //Lesson:
 app.get('/api/lessons', controller.getLessons);
 //Add:
