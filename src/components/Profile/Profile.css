@@ -1,0 +1,59 @@
+input {
+  display: flex;
+  align-content: left;
+  border-radius: 15px;
+  color: black;
+  font-size: 20px;
+  background-color: transparent;
+  padding: 10px;
+}
+
+button {
+  cursor: pointer;
+  background-color: #ffe2d8;
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.box {
+  position: center;
+  cursor: move;
+  color: black;
+  background-color: white;
+  max-width: 215px;
+  overflow-wrap: break-word;
+  border-radius: 15px;
+  padding: 20px;
+  margin: auto;
+  user-select: none;
+}
+
+#new-item {
+  user-select: none;
+  position: absolute;
+  top: 50%;
+  left: 35%;
+  right: 75%;
+}
+
+input:focus {
+  outline: none;
+}
+
+button:hover {
+  background-color: #56c1d1;
+}
+
+#delete {
+  font-size: 8px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: transparent;
+  border: none;
+}
+
+#delete:hover {
+  color: red;
+}

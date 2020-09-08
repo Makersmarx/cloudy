@@ -2,11 +2,12 @@ const bcrypt = require('bcrypt');
 
 module.exports = {
   login: async (req, res) => {
-    const { username, password } = req.body;
     const db = req.app.get('db');
+    const { username, password } = req.body;
+
     const user = await db.check_user(username);
     if (!user[0]) {
-      return res.status(401).send('Incorrect Credentials');
+      return res.status(401).send('Incorrect Login');
     } else {
       const authenticated = bcrypt.compareSync(password, user[0].password);
       if (authenticated) {
@@ -16,27 +17,50 @@ module.exports = {
         };
         res.status(200).send(req.session.user);
       } else {
-        res.status(403).send('Email or Password Incorrect');
+        res.status(403).send('Username or Password Incorrect');
       }
     }
   },
-
   register: async (req, res) => {
     const db = req.app.get('db');
     const { username, password } = req.body;
-    const existingUser = await db.check_user(username);
-    if (existingUser[0]) {
+
+    const foundUser = await db.check_user(username);
+
+    if (foundUser[0]) {
       return res.status(409).send('User Already Exists');
     }
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(password, salt);
-    const [newUser] = await db.create_user([username, hash]);
+
+    const newUser = await db.new_user([username, hash]);
+
     req.session.user = {
-      userId: newUser.user_id,
-      username: newUser.username,
+      userId: newUser[0].user_id,
+      username: newUser[0].username,
     };
+
     res.status(200).send(req.session.user);
   },
+
+  // register: async (req, res) => {
+  //   const db = req.app.get('db');
+  //   const { username, password } = req.body;
+  //   const existingUser = await db.check_user(username);
+  //   if (existingUser[0]) {
+  //     return res.status(409).send('User Exists');
+  //   } else {
+  //   const salt = bcrypt.genSaltSync(10);
+  //   const hash = bcrypt.hashSync(password, salt);
+  //   const newUser = await db.new_user([username, hash]);
+  //   req.session.user = {
+  //     userId: newUser.user_id,
+  //     username: newUser.username,
+
+  //   res.status(200).send(req.session.user);
+  //   }
+  // }
+  // },
 
   logout: (req, res) => {
     req.session.destroy();
