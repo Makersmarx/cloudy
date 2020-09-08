@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-// import './Profile.css';
+import React, { useState } from 'react';
+import './Tools.css';
 import Draggable from 'react-draggable';
 import { v4 as uuidv4 } from 'uuid';
-import Header from '../../components/Header/Header';
+import Header from '../Header/Header';
 
 let randomColor = require('randomcolor');
 
-function Profile() {
+function Tools() {
   const [item, setItem] = useState('');
   const [items, setItems] = useState(
     JSON.parse(localStorage.getItem('items')) || []
@@ -52,13 +52,17 @@ function Profile() {
       <Header />
       <div id="new-item">
         <input
+          className="input-field"
           value={item}
           onChange={(e) => setItem(e.target.value)}
           placeholder="Clear The Clouds..."
           onKeyPress={(e) => keyPress(e)}
         />
-        <button onClick={newitem}>ENTER</button>
       </div>
+      <button className="prof-button" onClick={newitem}>
+        Push
+      </button>
+
       {items.map((item, index) => {
         return (
           <Draggable
@@ -81,4 +85,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+export default Tools;

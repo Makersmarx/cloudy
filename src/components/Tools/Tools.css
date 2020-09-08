@@ -1,6 +1,6 @@
 input {
-  display: flex;
-  align-content: left;
+  margin-top: -initial;
+  margin-right: -155px;
   border-radius: 15px;
   color: black;
   font-size: 20px;
@@ -8,7 +8,23 @@ input {
   padding: 10px;
 }
 
-button {
+#new-item {
+  user-select: none;
+  position: absolute;
+  top: 100px;
+  left: 35%;
+  right: 75%;
+}
+
+.input-field {
+  display: flex;
+  background: #ffe2d8;
+  justify-content: center;
+}
+
+.prof-button {
+  margin-left: 735px;
+  margin-top: 10px;
   cursor: pointer;
   background-color: #ffe2d8;
   font-size: 20px;
@@ -29,12 +45,8 @@ button {
   user-select: none;
 }
 
-#new-item {
-  user-select: none;
-  position: absolute;
-  top: 50%;
-  left: 35%;
-  right: 75%;
+input:hover {
+  background-color: #56c1d1;
 }
 
 input:focus {

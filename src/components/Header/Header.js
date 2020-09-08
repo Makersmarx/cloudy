@@ -32,7 +32,7 @@ class Header extends React.Component {
               <Link to="/homepage">Home</Link>
             </li>
             <li>
-              <Link to="/profile">Profile</Link>
+              <Link to="/tools">Tools</Link>
             </li>
             <li onClick={this.logout}>
               <Link to="/">Logout</Link>
