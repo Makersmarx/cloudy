@@ -18,7 +18,7 @@ function Tools() {
         id: uuidv4(),
         item: item,
         color: randomColor({
-          luminosity: 'bright',
+          luminosity: 'dark',
         }),
         defaultPos: { x: 620, y: 250 },
       };
@@ -81,6 +81,36 @@ function Tools() {
           </Draggable>
         );
       })}
+
+      <div class="row">
+        <div class="column">
+          <div class="card">Class Notes</div>
+        </div>
+        <div class="column">
+          <div class="card">..</div>
+        </div>
+        <div class="column">
+          <div class="card">..</div>
+        </div>
+        <div class="column">
+          <div class="card">..</div>
+        </div>
+      </div>
+      <br></br>
+      <div class="row">
+        <div class="column">
+          <div class="card">Class Notes</div>
+        </div>
+        <div class="column">
+          <div class="card">..</div>
+        </div>
+        <div class="column">
+          <div class="card">..</div>
+        </div>
+        <div class="column">
+          <div class="card">..</div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -2,7 +2,7 @@
   background-color: white;
   height: 75px;
   padding-left: 35px;
-  padding-top: 25px;
+  padding-top: 15px;
   color: #56c1d1;
 }
 
@@ -41,12 +41,12 @@ img {
   justify-content: center;
   padding: 35px;
 }
-input,
+.input-container,
 .btn-container {
   margin: 20px;
   float: right;
 }
 
-button {
+.log-button {
   margin-left: 15px;
 }

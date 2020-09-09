@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const initialState = {
-  user: {},
+  username: '',
   isLoggedIn: false,
 };
 
@@ -9,10 +9,10 @@ const LOGIN_USER = 'LOGIN_USER';
 const LOGOUT_USER = 'LOGOUT_USER';
 const GET_USER = 'GET_USER';
 
-export function loginUser(user) {
+export function loginUser(username) {
   return {
     type: LOGIN_USER,
-    payload: user,
+    payload: username,
   };
 }
 
@@ -24,29 +24,29 @@ export function logoutUser() {
 }
 
 export function getUser() {
-  const user = axios
+  const username = axios
     .get('/auth/user')
     .then((res) => res.data)
     .catch((err) => console.log(err));
 
   return {
     type: GET_USER,
-    payload: user,
+    payload: username,
   };
 }
 
 export default function (state = initialState, action) {
   switch (action.type) {
     case LOGIN_USER:
-      return { ...state, user: action.payload, isLoggedIn: true };
+      return { ...state, username: action.payload, isLoggedIn: true };
     case LOGOUT_USER:
       return { ...state, ...action.payload };
     case GET_USER + '_PENDING':
       return state;
-    // case GET_USER + '_FULFILLED':
-    //   return { ...state, user: action.payload.data, isLoggedIn: true };
-    // case GET_USER + '_REJECTED':
-    //   return initialState;
+    case GET_USER + '_FULFILLED':
+      return { ...state, username: action.payload.data, isLoggedIn: true };
+    case GET_USER + '_REJECTED':
+      return initialState;
     default:
       return initialState;
   }

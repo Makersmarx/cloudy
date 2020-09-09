@@ -78,23 +78,29 @@ class Login extends React.Component {
             </Draggable>
             {!this.state.newUser ? (
               <div>
-                <input
-                  onChange={(e) => this.changeHandler(e)}
-                  name="username"
-                  type="text"
-                  value={username}
-                  placeholder="Username"
-                />
-                <input
-                  onChange={(e) => this.changeHandler(e)}
-                  name="password"
-                  type="password"
-                  value={password}
-                  placeholder="Password"
-                />
+                <div className="input-cont">
+                  <input
+                    onChange={(e) => this.changeHandler(e)}
+                    name="username"
+                    type="text"
+                    value={username}
+                    placeholder="Username"
+                  />
+                  <input
+                    onChange={(e) => this.changeHandler(e)}
+                    name="password"
+                    type="password"
+                    value={password}
+                    placeholder="Password"
+                  />
+                </div>
                 <div className="btn-container">
-                  <button onClick={this.login}>Login</button>
-                  <button onClick={this.toggle}>Sign Up</button>
+                  <button className="log-button" onClick={this.login}>
+                    Login
+                  </button>
+                  <button className="log-button" onClick={this.toggle}>
+                    Sign Up
+                  </button>
                 </div>
               </div>
             ) : (
@@ -114,8 +120,12 @@ class Login extends React.Component {
                   placeholder="Password"
                 />
                 <div classname="btn-container">
-                  <button onClick={this.register}>Register</button>
-                  <button onClick={this.toggle}>Registered</button>
+                  <button className="log-button" onClick={this.register}>
+                    Register
+                  </button>
+                  <button className="log-button" onClick={this.toggle}>
+                    Registered
+                  </button>
                 </div>
               </div>
             )}

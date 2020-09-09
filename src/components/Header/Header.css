@@ -15,6 +15,16 @@ header {
   /* align-items: center; */
 }
 
+.logo-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 80%;
+}
+
 .navigation {
   width: 300px;
 }
