@@ -55,14 +55,10 @@ function Tools() {
           className="input-field"
           value={item}
           onChange={(e) => setItem(e.target.value)}
-          placeholder="Clear The Clouds..."
+          placeholder="Make it Rain Sticky Notes..."
           onKeyPress={(e) => keyPress(e)}
         />
       </div>
-      <button className="prof-button" onClick={newitem}>
-        Push
-      </button>
-
       {items.map((item, index) => {
         return (
           <Draggable
@@ -81,34 +77,19 @@ function Tools() {
           </Draggable>
         );
       })}
-
-      <div class="row">
-        <div class="column">
-          <div class="card">Class Notes</div>
-        </div>
-        <div class="column">
-          <div class="card">..</div>
-        </div>
-        <div class="column">
-          <div class="card">..</div>
-        </div>
-        <div class="column">
-          <div class="card">..</div>
-        </div>
-      </div>
       <br></br>
       <div class="row">
         <div class="column">
           <div class="card">Class Notes</div>
         </div>
         <div class="column">
-          <div class="card">..</div>
+          <div class="card">Important Notes</div>
         </div>
         <div class="column">
-          <div class="card">..</div>
+          <div class="card">Funny Notes</div>
         </div>
         <div class="column">
-          <div class="card">..</div>
+          <div class="card">Random Notes</div>
         </div>
       </div>
     </div>

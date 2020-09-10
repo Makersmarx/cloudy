@@ -2,7 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { loginUser } from '../../redux/reducer';
-import Draggable from 'react-draggable';
 import './Login.css';
 
 class Login extends React.Component {
@@ -60,22 +59,22 @@ class Login extends React.Component {
     const { username, password } = this.state;
     return (
       <div>
-        <div className="title">
+        {/* <div className="title">
           <h1>Cloudy</h1>
-        </div>
+        </div> */}
         <div className="login">
           <div className="login-container">
             <div className="login-title">
               <h1>Head in The Clouds</h1>
             </div>
-            <Draggable>
-              <img
-                src={require('/home/makers/cloudy/src/components/Login/head.png')}
-                alt="Person with head in clouds"
-                width="500"
-                height="200"
-              />
-            </Draggable>
+
+            <img
+              src={require('/home/makers/cloudy/src/components/Login/head.png')}
+              alt="Person with head in clouds"
+              width="500"
+              height="200"
+            />
+
             {!this.state.newUser ? (
               <div>
                 <div className="input-cont">

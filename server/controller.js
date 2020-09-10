@@ -27,6 +27,7 @@ module.exports = {
     const { username, password } = req.body;
 
     const foundUser = await db.check_user(username);
+    console.log(foundUser);
 
     if (foundUser[0]) {
       return res.status(409).send('User Already Exists');

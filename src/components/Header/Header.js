@@ -24,7 +24,7 @@ class Header extends React.Component {
     return (
       <header>
         <div className="logo-container">
-          <h1>Cloudy</h1>
+          <h1>Head in The Clouds</h1>
         </div>
         <nav className="navigation">
           <ul>

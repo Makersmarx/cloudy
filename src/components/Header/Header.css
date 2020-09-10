@@ -10,8 +10,8 @@ header {
 .logo-container {
   height: 100%;
   display: flex;
-  color: #56c1d1;
-  padding-right: 60%;
+  color: #009da7;
+  padding-right: 50%;
   /* align-items: center; */
 }
 
@@ -41,7 +41,7 @@ header {
 
 .navigation > ul li > a {
   text-decoration: none;
-  color: #56c1d1;
+  color: #009da7;
 }
 
 h1 {
@@ -52,7 +52,7 @@ h1 {
   position: absolute;
   background-color: #ffe2d8;
   cursor: move;
-  color: #56c1d1;
+  color: #009da7;
   max-width: 215px;
   border-radius: 5px;
   padding: 1em;

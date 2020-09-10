@@ -44,7 +44,7 @@ export default function (state = initialState, action) {
     case GET_USER + '_PENDING':
       return state;
     case GET_USER + '_FULFILLED':
-      return { ...state, username: action.payload.data, isLoggedIn: true };
+      return { ...state, username: action.payload, isLoggedIn: true };
     case GET_USER + '_REJECTED':
       return initialState;
     default:
