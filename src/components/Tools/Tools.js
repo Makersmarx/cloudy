@@ -3,6 +3,7 @@ import './Tools.css';
 import Draggable from 'react-draggable';
 import { v4 as uuidv4 } from 'uuid';
 import Header from '../Header/Header';
+import Card from '../Cards/Card';
 
 let randomColor = require('randomcolor');
 
@@ -91,6 +92,10 @@ function Tools() {
         <div class="column">
           <div class="card">Random Notes</div>
         </div>
+      </div>
+      <div className="board">
+        <h1 className="title">Daily Tidbits</h1>
+        <Card />
       </div>
     </div>
   );

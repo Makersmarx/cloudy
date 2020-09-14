@@ -151,23 +151,26 @@ export default function OutlinedCard() {
                 color="textSecondary"
                 gutterBottom
               >
-                Place of the Day
+                Song of the Day
               </Typography>
               <Typography variant="h5" component="h2">
-                dev{bull}mou{bull}n{bull}tain
+                Mood
               </Typography>
               <Typography className={classes.pos} color="textSecondary">
-                kick ass place
+                24KGoldn & Ian Dior
               </Typography>
               <Typography variant="body2" component="p">
-                Teaching the ways of the code
+                Todays Top Hits
                 <br />
-                {'"Code Life @ DevMnt"'}
+                {'"Lets Jam"'}
               </Typography>
             </CardContent>
             <CardActions>
               <Button
-                onClick={(e) => (window.location = 'https://devmountain.com/')}
+                onClick={(e) =>
+                  (window.location =
+                    'https://open.spotify.com/playlist/37i9dQZF1DXcBWIGoYBM5M')
+                }
                 size="small"
               >
                 Learn More

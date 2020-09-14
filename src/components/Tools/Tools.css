@@ -101,6 +101,15 @@ body {
   clear: both;
 }
 
+.board {
+  background-color: #a1c23b;
+  height: 95vh;
+}
+
+.title {
+  padding-top: 75px;
+}
+
 @media screen and (max-width: 600px) {
   .column {
     width: 100%;

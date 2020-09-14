@@ -4,7 +4,7 @@ import unsplash from '../../api/unsplash';
 import Header from '../Header/Header';
 import SearchBar from '../Search/SearchBar';
 import LessonList from '../Lessons/LessonList';
-import Card from '../Cards/Card';
+import Stripe from '../Stripe/Stripe';
 
 class HomePage extends React.Component {
   state = { images: [] };
@@ -60,10 +60,9 @@ class HomePage extends React.Component {
               lacus nunc, viverra nec.
             </p>
           </div>
-          <Card />
-          <div className="tester">
-            <button className="donate">Donate</button>
-          </div>
+        </div>
+        <div>
+          <Stripe />
         </div>
       </div>
     );
