@@ -49,3 +49,11 @@ img {
 .log-button {
   padding: 2px;
 }
+
+@media screen and (max-width: 600px) {
+  .login img {
+    width: 100%;
+    display: none;
+    margin-bottom: 20px;
+  }
+}

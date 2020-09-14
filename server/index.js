@@ -2,7 +2,7 @@
 require('dotenv').config();
 
 // port being used
-const port = 8001;
+const port = process.env.SERVER_PORT || 5000;
 
 // destructure vars from .env to use in index.js
 const {
