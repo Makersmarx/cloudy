@@ -69,7 +69,7 @@ class Login extends React.Component {
             </div>
 
             <img
-              src={require('./head.png')}
+              src={require('../../images/head.png')}
               alt="Person with head in clouds"
               width="500"
               height="200"
