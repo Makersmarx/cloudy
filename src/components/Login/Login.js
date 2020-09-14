@@ -69,7 +69,7 @@ class Login extends React.Component {
             </div>
 
             <img
-              src={require('/home/makers/cloudy/src/components/Login/head.png')}
+              src={require('./head.png')}
               alt="Person with head in clouds"
               width="500"
               height="200"
