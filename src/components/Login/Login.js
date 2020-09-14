@@ -71,8 +71,6 @@ class Login extends React.Component {
             <img
               src={require('../../images/head.png')}
               alt="Person with head in clouds"
-              width="500"
-              height="200"
             />
 
             {!this.state.newUser ? (

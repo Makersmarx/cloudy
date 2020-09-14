@@ -8,6 +8,8 @@
 
 img {
   border-radius: 25px;
+  width: 500;
+  height: 200;
 }
 
 .login-title {
