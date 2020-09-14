@@ -34,7 +34,6 @@ class Stripe extends Component {
     return (
       <div className="checkout">
         <div className="checkheader">
-          <img src={pokeOne} className="logo" alt="logo" />
           <h1 className="welcome">Art Lessons</h1>
         </div>
 

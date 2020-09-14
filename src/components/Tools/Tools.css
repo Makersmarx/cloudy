@@ -1,5 +1,4 @@
 body {
-  /* background-image: url('clouds.png'); */
   background-color: #d9d9d9;
 }
 
@@ -108,6 +107,7 @@ body {
 
 .title {
   padding-top: 75px;
+  text-align: center;
 }
 
 @media screen and (max-width: 600px) {

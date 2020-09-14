@@ -18,7 +18,7 @@ class SearchBar extends React.Component {
             <div className="input-box">
               <input
                 type="text"
-                placeholder="Lesson Search"
+                placeholder="Image Search"
                 value={this.state.term}
                 onChange={(event) =>
                   this.setState({ term: event.target.value })
