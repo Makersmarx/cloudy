@@ -26,7 +26,7 @@ class Stripe extends Component {
       .post('/api/payment', { token: token, amount: amount })
       .then((charge) => {
         console.log('charge', charge.data);
-        alert('You bought dat PiC');
+        alert('You Own that');
       });
   };
 
@@ -71,7 +71,7 @@ class Stripe extends Component {
             panelLabel="Charge Me" // Panel button text
             zipCode={false} // Collect zip code
             billingAddress={false} // Collect billing address
-            amount={this.state.amount} // Amount shown to user on panel
+            amount={this.state.amount} // Amount shown on panel
           />
         )}
       </div>

@@ -59,3 +59,11 @@ h1 {
   margin: auto;
   user-select: none;
 }
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}

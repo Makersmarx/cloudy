@@ -1,5 +1,6 @@
 body {
   background-color: #d9d9d9;
+  width: 100vw;
 }
 
 .input-field {
@@ -71,7 +72,7 @@ body {
 
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  background-color: #ffe2d8;
+  background-color: #a1c23b;
 }
 
 .container {
@@ -108,6 +109,11 @@ body {
 .title {
   padding-top: 75px;
   text-align: center;
+}
+
+.foot {
+  height: 100vh;
+  background-color: lawngreen;
 }
 
 @media screen and (max-width: 600px) {

@@ -97,6 +97,9 @@ function Tools() {
         <h1 className="title">Daily Tidbits</h1>
         <Card />
       </div>
+      {/* <div className="foot">
+        <footer>Test</footer>
+      </div> */}
     </div>
   );
 }

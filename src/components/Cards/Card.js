@@ -154,10 +154,10 @@ export default function OutlinedCard() {
                 Song of the Day
               </Typography>
               <Typography variant="h5" component="h2">
-                Mood
+                you broke me first
               </Typography>
               <Typography className={classes.pos} color="textSecondary">
-                24KGoldn & Ian Dior
+                Tate McRae
               </Typography>
               <Typography variant="body2" component="p">
                 Todays Top Hits
