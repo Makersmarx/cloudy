@@ -59,7 +59,7 @@ class Stripe extends Component {
             style={{ backgroundImage: `url(${pokeThree})` }}
             onClick={() => this.setState({ amount: 1100, product: 'Pokemon' })}
           >
-            <span>Charmeleon: $11</span>
+            <span>Charmeleon: $21</span>
           </div>
         </div>
 
