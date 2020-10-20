@@ -36,7 +36,7 @@ export default function OutlinedCard() {
 
   return (
     <div>
-      <div className={classes.positon}>
+      <div className={classes.position}>
         <Draggable>
           <Card className={classes.root} variant="outlined">
             <CardContent>
